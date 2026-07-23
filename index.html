@@ -310,8 +310,9 @@
         function closeModal() {
             const modal = document.getElementById('customModal');
             modal.classList.remove('active');
+        }
 
-            document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('contextmenu', event => event.preventDefault());
 
 // Disable Copy/Cut/Paste
 document.addEventListener('copy', event => event.preventDefault());
@@ -327,7 +328,7 @@ document.addEventListener('keydown', e => {
     e.preventDefault();
   }
 });
-        }
+    
 </script>
 </body>
 </html>
