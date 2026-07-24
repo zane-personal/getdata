@@ -3,147 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page (Get Data)</title>
+    <title>Collect Data(JavaScript)</title>
     <style>
-              /* Import Google Font */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-        /* Reset basic styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-        }
 
-        body {
-            background-color: #f9fafb;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 16px;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
 
-        /* Login Card Style */
-        .login-card {
-            width: 100%;
-            max-width: 380px;
-            background-color: #ffffff;
-            padding: 40px 32px;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            border: 1px solid #f1f5f9;
-        }
+body {
+     background-color: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 16px;
+}
 
-        /* Title Style */
-        .login-title {
-            font-size: 24px;
-            font-weight: 700;
-            text-align: center;
-            color: #1e293b;
-            letter-spacing: 0.1em;
-            margin-bottom: 32px;
-        }
+.container {
+    width: 100%;
+    max-width: 380px;
+    background-color: #ffffff;
+    padding: 40px 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f1f5f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-        /* Form and Input Layout */
-        .form-group {
-            margin-bottom: 16px;
-        }
+.title {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    color: #1e293b;
+    letter-spacing: 0.1em;
+    margin-bottom: 32px;
+}
 
-        .input-field {
-            width: 100%;
-            padding: 14px 20px;
-            background-color: #eaeaea;
-            border: none;
-            border-radius: 8px;
-            font-size: 15px;
-            color: #333333;
-            outline: none;
-            transition: all 0.2s ease;
-        }
+.input-fields {
+     padding: 14px 20px;
+    background-color: #eaeaea;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #333333;
+    outline: none;
+    transition: all 0.2s ease;
+    margin-bottom: 16px;
+}
 
-        /* Input Placeholder Color */
-        .input-field::placeholder {
-            color: #9ca3af;
-        }
+.options {
+    width: 100%;
+    padding: 0 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
 
-        /* Input Focus Style */
-        .input-field:focus {
-            box-shadow: 0 0 0 2px #8583f7;
-            background-color: #f3f4f6;
-        }
+.options-a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
 
-        /* Remember me and Forgot Password Layout */
-        .options-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 8px;
-            margin-bottom: 24px;
-        }
+.remember-chb {
+    width: 16px;
+    height: 16px;
+    accent-color: #8583f7;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-        .remember-me {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            user-select: none;
-        }
+.remember-txt {
+    font-size: 13px;
+    color: #9ca3af;
+    font-weight: 400;
+    text-decoration: none;
+}
 
-        .remember-me input[type="checkbox"] {
-            width: 16px;
-            height: 16px;
-            accent-color: #8583f7;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+.forgot-link {
+     border: none;
+    font-size: 13px;
+    color: #8583f7;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+    cursor: pointer;
+}
 
-        .options-text {
-            font-size: 13px;
-            color: #9ca3af;
-            font-weight: 400;
-            text-decoration: none;
-        }
+.forgot-link:hover {
+    text-decoration: underline;
+}
 
-        .forgot-link {
-            font-size: 13px;
-            color: #8583f7;
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 0.2s;
-        }
+.login-btn {
+    width: 80%;
+    padding: 16px;
+    background-color: #8583f7;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(133, 131, 247, 0.2);
+    transition: all 0.2s ease;
+}
 
-        .forgot-link:hover {
-            text-decoration: underline;
-        }
 
-        /* Login Button Style */
-        .login-btn {
-            width: 100%;
-            padding: 16px;
-            background-color: #8583f7;
-            color: #ffffff;
-            border: none;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            cursor: pointer;
-            box-shadow: 0 4px 6px -1px rgba(133, 131, 247, 0.2);
-            transition: all 0.2s ease;
-        }
 
-        .login-btn:hover {
+.login-btn:hover {
             background-color: #7371e3;
         }
 
-        .login-btn:active {
-            transform: scale(0.98);
-        }
-
-        /* Custom Modal Styles */
-        .modal-overlay {
+               .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -213,66 +196,31 @@
     </style>
 </head>
 <body>
+    <!--main container-->
+    <div class="container">
+        <h1 class="title">LOGIN</h1>
 
-    <!-- Login Card Container -->
-    <div class="login-card">
-        
-        <!-- Title -->
-        <h1 class="login-title">LOGIN</h1>
+        <input type="email" id="username" name="username" class="input-fields" placeholder="Username">
+        <input type="password" id="password" name="password" class="input-fields" placeholder="Password">
 
-        <!-- Login Form -->
-        <form id="loginForm" onsubmit="handleLogin(event)">
-                <script>
+        <div class="options">
 
-    </script>
-            <!-- Username Input -->
-            <div class="form-group">
-                <input 
-                    type="text" 
-                    id="username"
-                    placeholder="Username" 
-                    required
-                    class="input-field"
-                >
+            <div class="option-a">
+                <input type="checkbox" name="Remember"  class="remember-chb" id="remember">
+                <span class="remember-txt">Remember Me</span>
             </div>
 
-            <!-- Password Input -->
-            <div class="form-group">
-                <input 
-                    type="password" 
-                    id="password"
-                    placeholder="Password" 
-                    required
-                    class="input-field"
-                >
-            </div>
+            <button id="forgot" class="forgot-link">Forgot?</button>
 
-            <!-- Remember me and Forgot Password Links -->
-            <div class="options-container">
-                <!-- Remember me Checkbox -->
-                <label class="remember-me">
-                    <input type="checkbox">
-                    <span class="options-text">Remember me</span>
-                </label>
-                
-                <!-- Forgot Password Link -->
-                <a href="#" onclick="showModal('Password Recovery', 'This feature will be available soon.')" class="forgot-link">
-                    Forgot?
-                </a>
-            </div>
+        </div>
 
-            <!-- Login Button -->
-            <button type="submit" class="login-btn">
-                LOGIN
-            </button>
-        </form>
-
+        <button id="login-btn" class="login-btn">LOGIN</button>
     </div>
 
-    <!-- Custom Modal Notification for Testing -->
+
     <div id="customModal" class="modal-overlay">
         <div class="modal-box">
-            <h3 id="modalTitle" class="modal-title"></h3>
+            <h3 id="modalTitle" class="modal-title">Login Successful</h3>
             <p id="modalMessage" class="modal-msg"></p>
             <button onclick="closeModal()" class="modal-close-btn">
                 Close
@@ -280,25 +228,36 @@
         </div>
     </div>
 
-    <!-- JavaScript Logic -->
+    <script>
+        const user = document.getElementById('username')
+const password = document.getElementById('password')
+const loginbtn = document.getElementById('login-btn')
+const forgotbtn = document.getElementById('forgot')
 
+loginbtn.addEventListener('click', function(){
 
-<script>
-        // Function to handle form submission
-        function handleLogin(event) {
-            event.preventDefault(); // Prevent page reload
-            
-            const username = document.getElementById('username').value;
-            
-            // Show success notification
-            showModal(
-                'Login Successful', 
-                `Hello, ${username}! You have successfully logged in.`
-            );
-        }
+    let txt = ""
+    let de_user = 'zane@gmail.com'
+    let de_pass = 'zane'
+    if(user.value === txt && password.value === txt){
+        actionpanel('Notification','Please enter your eamil and password first.')
+    }
 
-        // Function to show the custom modal
-        function showModal(title, message) {
+    else if(user.value == de_user) {
+        actionpanel('Login Successful', `Hello ${de_user}! You have successfully Logged in.` )
+    }
+
+    else {
+        actionpanel('Login Unsuccessful', 'Your email or password is incorrect. Please try again.')
+    }
+
+})
+
+forgotbtn.addEventListener('click', function(){
+    actionpanel('Recovery', 'This feature will be avaliable soon.')
+})
+
+function actionpanel(title, message) {
             const modal = document.getElementById('customModal');
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalMessage').innerText = message;
@@ -306,13 +265,13 @@
             modal.classList.add('active');
         }
 
-        // Function to close the custom modal
-        function closeModal() {
+ function closeModal() {
             const modal = document.getElementById('customModal');
             modal.classList.remove('active');
-        }
+}
 
-    document.addEventListener('contextmenu', event => event.preventDefault());
+                        // Disable Right-Click
+document.addEventListener('contextmenu', event => event.preventDefault());
 
 // Disable Copy/Cut/Paste
 document.addEventListener('copy', event => event.preventDefault());
@@ -328,7 +287,6 @@ document.addEventListener('keydown', e => {
     e.preventDefault();
   }
 });
-    
-</script>
+    </script>
 </body>
 </html>
